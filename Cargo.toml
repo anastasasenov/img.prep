@@ -1,0 +1,18 @@
+[package]
+name = "img_prep"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+fast_image_resize = { version = "6.1", features = ["image"] }
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp"] }
+indicatif = "0.17"
+rayon = "1.12"
+walkdir = "2.5"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
